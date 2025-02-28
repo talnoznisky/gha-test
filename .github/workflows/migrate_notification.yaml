@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: send notification
-        run: bash scripts/send_message.sh
+        # run: bash scripts/send_message.sh
+        run: ls
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
