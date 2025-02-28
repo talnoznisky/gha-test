@@ -9,7 +9,7 @@ on:
 
 jobs:
   notify-tal:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: send notification
         run: |
