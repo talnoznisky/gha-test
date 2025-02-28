@@ -12,9 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: send notification
-        run: |
-          echo 'i work'
-          curl -X POST --data-urlencode "payload={\"text\": \"Connectivity test\"}" $SLACK_WEBHOOK_URL
+        run: bash ./scripts/send_message.sh
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
