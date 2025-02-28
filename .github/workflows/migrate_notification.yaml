@@ -12,7 +12,9 @@ jobs:
     steps:
       - name: send notification
         # run: bash scripts/send_message.sh
-        run: ls
+        run: |
+          ls
+          pwd
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
