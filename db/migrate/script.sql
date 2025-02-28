@@ -1,1 +1,2 @@
-select * from nowhere
+meow meow
+
