@@ -3,7 +3,7 @@ name: Notify Migration
 on:
   pull_request_target:
     types:
-      - opened
+      - [opened, reopened]
     paths:
       - 'db/migrate/*'
 
