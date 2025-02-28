@@ -5,7 +5,7 @@ on:
     types:
       - opened
     paths:
-      - db/migrate/*'
+      - ./db/migrate/*'
 
 jobs:
   notify-tal:
