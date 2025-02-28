@@ -10,7 +10,7 @@ on:
 jobs:
   notify-tal:
     runs-on: unbuntu-latest
-    run:   curl -X POST --data-urlencode "payload={\"text\": \"Connectivity test\"}" $SLACK_DEPLOY_WEBHOOK
+    run: curl -X POST --data-urlencode "payload={\"text\": \"Connectivity test\"}" $SLACK_WEBHOOK_URL
     env:
-      webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
