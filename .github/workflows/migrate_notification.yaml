@@ -1,0 +1,17 @@
+name: Notify Migration
+
+on:
+  pull_request_target:
+    types:
+      - opened
+    paths:
+      - db/migrate/*'
+
+
+jobs:
+  email-tal:
+    uses: slackapi/slack-github-action@v2.0.0
+    with:
+      webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+      webhook-type: incoming-webhook
+      payload: 'Connectivity test 1'
