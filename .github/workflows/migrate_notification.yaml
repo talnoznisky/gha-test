@@ -1,7 +1,7 @@
 name: Notify Migration
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, reopened]
     paths:
       - 'db/migrate/*'
@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: send notification
         run: |
-          curl -X POST --data-urlencode 'payload={"text": "Connectivity test"}' "$SLACK_WEBHOOK_URL"
+          curl -X POST --data-urlencode 'payload={"text": ${{ github.pull_request.body }}}' "$SLACK_WEBHOOK_URL"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
