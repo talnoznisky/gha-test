@@ -15,6 +15,6 @@ jobs:
           curl -X POST --data-urlencode 'payload={"text": "*'$PR_TITLE'*\n'$PR_HTML_URL'\n'$PR_BODY'"}' "$SLACK_WEBHOOK_URL"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
           PR_HTML_URL: ${{ github.event.pull_request.html_url }}
           PR_BODY: ${{ github.event.pull_request.body }}
-          PR_BODY: ${{ github.event.pull_request.title }}
