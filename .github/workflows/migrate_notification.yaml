@@ -12,9 +12,8 @@ jobs:
     steps:
       - name: send notification
         run: |
-          curl -X POST --data-urlencode 'payload={"text": "$PR_HTML_URL \n $PR_DESCRIPTION"}' "$SLACK_WEBHOOK_URL"
+          curl -X POST --data-urlencode 'payload={"text": "'$PR_HTML_URL'  \n '$PR_DESCRIPTION'"}' "$SLACK_WEBHOOK_URL"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           PR_HTML_URL: ${{ github.event.pull_request.html_url }}
           PR_DESCRIPTION: ${{ github.event.pull_request.description }}
-
