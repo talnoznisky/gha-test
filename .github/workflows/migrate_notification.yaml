@@ -5,16 +5,16 @@ on:
     types: [opened, reopened]
     paths:
       - 'db/migrate/*'
-
+      - 'db/schema.rb'
 jobs:
-  notify-tal:
+  notify-slack-help-data-pod-channel:
     runs-on: ubuntu-latest
     steps:
       - name: send notification
         run: |
-          curl -X POST --data-urlencode "payload={\"text\": \"*$PR_TITLE*\n$PR_BODY\n$PR_HTML_URL\"}" $SLACK_WEBHOOK_URL
+          curl -X POST --data-urlencode "payload={\"text\": \"*$PR_TITLE*\n$PR_BODY\n$PR_HTML_URL\"}" $SLACK_DB_MIGRATION_URL
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_DB_MIGRATION_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           PR_TITLE: ${{ github.event.pull_request.title }}
           PR_HTML_URL: ${{ github.event.pull_request.html_url }}
           PR_BODY: ${{ github.event.pull_request.body }}
