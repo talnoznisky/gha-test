@@ -17,6 +17,7 @@ jobs:
         webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
         webhook-type: webhook-trigger
         payload: |
+          text: ':alert:DB migration notification:alert:'
           blocks:
             - type: "section"
               text: 
