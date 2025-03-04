@@ -11,7 +11,7 @@ jobs:
     name: notify-slack-help-data-pod-channel
     runs-on: ubuntu-latest
     steps:
-      uses: slackapi/slack-github-action@v2.0.0
+    - uses: slackapi/slack-github-action@v2.0.0
       with:
         payload: |
           {
