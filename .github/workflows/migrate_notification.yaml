@@ -25,7 +25,14 @@ jobs:
             - type: "section"
               text:
                 type: "mrkdwn"
-                text: "*\"${{ env.PR_TITLE }}\"*"
+                text: "(*\"${{ env.PR_TITLE }}\"*)[\"${{ env.PR_HTML_URL }}\"]"
+            - type: "divider"
+            - type: "section"
+              text:
+                type: "mrkdwn"
+                text: "\"${{ env.PR_BODY }}\""
+
+
 
 
   # steps:
