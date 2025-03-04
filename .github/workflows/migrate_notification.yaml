@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SLACK_DB_MIGRATION_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      PR_TITLE: ${{ github.event.pull_request.title }}
-      PR_HTML_URL: ${{ github.event.pull_request.html_url }}
-      PR_BODY: ${{ github.event.pull_request.body }}    
+      # PR_TITLE: ${{ github.event.pull_request.title }}
+      # PR_HTML_URL: ${{ github.event.pull_request.html_url }}
+      PR_BODY: ${{ github.event.pull_request.body }}
     steps:
     - uses: slackapi/slack-github-action@v2.0.0
       with:
@@ -30,7 +30,7 @@ jobs:
             - type: "section"
               text:
                 type: "mrkdwn"
-                text: "${{ env.PR_BODY }}"
+                text: "${{ github.event.pull_request.body }}"
 
 
 
