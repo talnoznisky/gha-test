@@ -33,7 +33,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "##this is a test\n### just testing tho"
+                  "text": "##this is a test\n###just testing tho"
                   
                 }
               }
