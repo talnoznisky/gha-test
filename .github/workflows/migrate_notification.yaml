@@ -33,12 +33,10 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*this is a test*"
-                  
+                  "text": ${{ github.event.pull_request.body }}
                 }
               }
             ]
           }
 
 
-# "text": ${{ github.event.pull_request.body }}
