@@ -28,26 +28,3 @@ jobs:
               text:
                 type: "mrkdwn"
                 text: "${{ github.event.pull_request.body }}"
-    # {
-    #   "blocks": [
-    #     {
-    #       "type": "section",
-    #       "text": {
-    #         "type": "mrkdwn",
-    #         "text": "*<${{ github.event.pull_request.html_url }}|${{ github.event.pull_request.title }}>*"
-    #       }
-    #     },
-    #     {
-    #       "type": "divider"
-    #     },
-    #     {
-    #       "type": "section",
-    #       "text": {
-    #         "type": "mrkdwn",
-    #         "text": "${{ github.event.pull_request.body }}"
-    #       }
-    #     }
-    #   ]
-    # }
-
-
