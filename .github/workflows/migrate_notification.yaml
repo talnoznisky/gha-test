@@ -6,6 +6,7 @@ on:
     paths:
       - 'db/migrate/*'
       - 'db/schema.rb'
+
 jobs:
   run:
     name: notify-slack-help-data-pod-channel
@@ -14,23 +15,25 @@ jobs:
     - uses: slackapi/slack-github-action@v2.0.0
       with:
         webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
-        webhook-type: webhook-trigger
         payload: |
-          blocks:  
-            - type: "section"
-              text:
-                type: "mrkdwn"
-                text: "*<${{ github.event.pull_request.html_url }}|${{ github.event.pull_request.title }}>*"
-            - type: "divider"
-            - type: "section"
-              text:
-                type: "mrkdwn"
-                text: ${{ toJSON(github.event.pull_request.body) }}
-
-
-
-
-  # steps:
-  #       - name: send notification
-  #         run: |
-  #           curl -X POST --data-urlencode "payload={\"text\": \"*$PR_TITLE*\n$PR_BODY\n$PR_HTML_URL\"}" $SLACK_DB_MIGRATION_URL
+          {
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*<${{ github.event.pull_request.html_url }}|${{ github.event.pull_request.title }}>*"
+                }
+              },
+              {
+                "type": "divider"
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "${{ toJson(github.event.pull_request.body) }}"
+                }
+              }
+            ]
+          }
