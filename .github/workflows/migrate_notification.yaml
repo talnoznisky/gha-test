@@ -13,13 +13,13 @@ jobs:
     steps:
     - uses: slackapi/slack-github-action@v2.0.0
       with:
-        payload: |
         webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
-        blocks:  
-          - type: "section"
-            text:
-              type: "mrkdwn"
-              text: "*\"${{ env.PR_TITLE }}\"*"
+        payload: |
+          blocks:  
+            - type: "section"
+              text:
+                type: "mrkdwn"
+                text: "*\"${{ env.PR_TITLE }}\"*"
         env:
           SLACK_DB_MIGRATION_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           PR_TITLE: ${{ github.event.pull_request.title }}
