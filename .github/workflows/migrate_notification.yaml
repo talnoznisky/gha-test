@@ -10,6 +10,11 @@ jobs:
   run:
     name: notify-slack-help-data-pod-channel
     runs-on: ubuntu-latest
+    env:
+      SLACK_DB_MIGRATION_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      PR_TITLE: ${{ github.event.pull_request.title }}
+      PR_HTML_URL: ${{ github.event.pull_request.html_url }}
+      PR_BODY: ${{ github.event.pull_request.body }}    
     steps:
     - uses: slackapi/slack-github-action@v2.0.0
       with:
@@ -20,11 +25,6 @@ jobs:
               text:
                 type: "mrkdwn"
                 text: "*\"${{ env.PR_TITLE }}\"*"
-        env:
-          SLACK_DB_MIGRATION_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          PR_TITLE: ${{ github.event.pull_request.title }}
-          PR_HTML_URL: ${{ github.event.pull_request.html_url }}
-          PR_BODY: ${{ github.event.pull_request.body }}
 
 
   # steps:
