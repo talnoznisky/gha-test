@@ -17,6 +17,8 @@ jobs:
         webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
         webhook-type: webhook-trigger
         payload: |
+          blocks:
+
           {
             "blocks": [
               {
@@ -33,8 +35,12 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": \"${{ github.event.pull_request.body }}\"
+                  "text": "##this is a test\n### just testing tho"
+                  
                 }
               }
             ]
           }
+
+
+# "text": ${{ github.event.pull_request.body }}
